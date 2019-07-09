@@ -1,0 +1,90 @@
+
+mysql> use db_cbe_vacancy.sql;
+Database changed
+mysql> SELECT * FROM `tbl_staff` ORDER BY FirstName ASC LIMIT 10;
++---------------+----------+-----------+----------------+----------+------------+--------+----------+------------+----------------+
+| registered_by | Staff_ID | FirstName | MiddleName     | LastName | birth_date | Gender | position | hire_date  | current_status |
++---------------+----------+-----------+----------------+----------+------------+--------+----------+------------+----------------+
+|               |       31 | abiy      | ahmed          | Ali`     | 1995-01-04 | male   |          | 0000-00-00 | Active         |
+|               |       19 | Dawud     | seifu          | Abdela   | 1978-05-18 | male   | recruit  | 2018-05-18 | Active         |
+|               |       21 | efrem     | mulu           | areya    | 1990-03-05 | male   | hr       | 2018-06-01 | Active         |
+|               |       25 | genet     | getahunuyyy887 | abebe    | 2018-07-03 | femlae | hr       | 0000-00-00 | Active         |
+|               |       26 | genet     | Zewde          | melaku   | 1988-07-04 | femlae | 1        | 0000-00-00 | Active         |
+|               |       32 | genet     | mamo           | abebe    | 0000-00-00 | femlae |          | 0000-00-00 | Active         |
+|               |       28 | getahun   | mekuria        | abebe    | 1991-01-02 | male   | recruit  | 0000-00-00 | Active         |
+|               |       16 | Haben     | Adane          | Mihretu  | 1988-03-03 | male   | 1        | 2018-05-18 | Active         |
+|               |       23 | hana      | getahun        | abebe    | 1978-07-01 | femlae | recruit  | 0000-00-00 | Active         |
+|               |       27 | hana      | getahun        | man      | 1978-07-01 | femlae | recruit  | 0000-00-00 | Active         |
++---------------+----------+-----------+----------------+----------+------------+--------+----------+------------+----------------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT * FROM `tbl_staff` order by FirstName ASC LIMIT 2;
++---------------+----------+-----------+------------+----------+------------+--------+----------+------------+----------------+
+| registered_by | Staff_ID | FirstName | MiddleName | LastName | birth_date | Gender | position | hire_date  | current_status |
++---------------+----------+-----------+------------+----------+------------+--------+----------+------------+----------------+
+|               |       31 | abiy      | ahmed      | Ali`     | 1995-01-04 | male   |          | 0000-00-00 | Active         |
+|               |       19 | Dawud     | seifu      | Abdela   | 1978-05-18 | male   | recruit  | 2018-05-18 | Active         |
++---------------+----------+-----------+------------+----------+------------+--------+----------+------------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT birth_date FROM tbl_staff WHERE birth_date BETWEEN '1988-03-03' and '2010-01-01';
++------------+
+| birth_date |
++------------+
+| 1988-03-03 |
+| 1990-03-05 |
+| 1997-07-02 |
+| 1988-07-04 |
+| 1991-01-02 |
+| 2010-01-01 |
+| 1995-01-04 |
++------------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(FirstName) FROM tbl_staff WHERE FirstName LIKE"hana%";
++------------------+
+| COUNT(FirstName) |
++------------------+
+|                4 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> update tbl_staff set MiddleName='getahunuyyy' WHERE staff_id ='25';
+Query OK, 0 rows affected (0.01 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> insert into tbl_staff (`registered_by`,`FirstName`, `MiddleName`, `LastName`, `birth_date`, `Gender`, `position`, `hire_date`, `current_status` FROM `tbl_staff`)VALUES('netsanet','gatechew','abebe','1989-5-10','F','datebase','2011','Active');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM `tbl_staff`)VALUES('netsanet','gatechew','abebe','1989-5-10','F','datebase'' at line 1
+mysql> insert into tbl_staff (registered_by,FirstName, MiddleName, LastName,birth_date, Gender, position, hire_date, current_status)VALUES('netsanet','gatechew','abebe','1989-5-10','F','datebase','2011','Active');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into tbl_staff (registered_by,FirstName, MiddleName, LastName,birth_date, Gender, position, hire_date, current_status)VALUES('','netsanet','gatechew','abebe','1989-5-10','F','datebase','2011','Active');
+ERROR 1292 (22007): Incorrect date value: '2011' for column 'hire_date' at row 1
+mysql> insert into tbl_staff (registered_by,FirstName, MiddleName, LastName,birth_date, Gender, position, hire_date, current_status)VALUES('','netsanet','gatechew','abebe','1989-5-10','F','datebase','2011-03-19','Active');
+Query OK, 1 row affected (0.02 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

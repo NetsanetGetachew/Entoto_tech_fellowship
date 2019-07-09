@@ -1,0 +1,11 @@
+git is version control
+git is init
+git is status
+git is add.
+git is commit
+git islog\oneline
+git is checkout
+git reset--hard head
+git log --all
+
+github is online remont very powerfull

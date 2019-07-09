@@ -1,0 +1,6 @@
+1, Introduction to programming languages.
+2, Diffrent Types of programming languages.
+3, How to search things on the internet.
+4, Introduction to web developement.
+5, Basic command line commands.
+6, Wengi is awesome.
